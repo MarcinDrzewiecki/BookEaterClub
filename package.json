@@ -1,9 +1,9 @@
 {
-  "name"         : "node-todo",
+  "name"         : "bookeaterclub",
   "version"      : "0.0.0",
-  "description"  : "Simple todo application.",
+  "description"  : "Book club web page",
   "main"         : "server.js",
-  "author"       : "Scotch",
+  "author"       : "Marcin",
   "dependencies" : {
     "express"    : "~4.7.2",
     "mongoose"   : "~3.6.2",
