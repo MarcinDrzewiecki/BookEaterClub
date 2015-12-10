@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BookEaterClub">
 <head>
   <title>BookEaterClub</title>
   <meta charset="utf-8">
@@ -10,314 +10,208 @@
   <link href='custom.css' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="main.js"></script>
   <style>
   body {
       position: relative; 
   }
   </style>
 </head>
-<body style="background:#f5f4f0;">
+<body>
 <div class="container" id="myNavbar" >
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header" ><!-- 
-        <button type="button" class="navbar-toggle" data-toggle="collapse" >
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-      </button> -->
-      <a class="navbar-brand topnav" href="#myNavbar">Book Eater Club</a>
-    </div>
-    <div>
-      <div class="collapse navbar-collapse" >
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-                        <a href="#books">Books</a>
-                    </li>
-                    <li>
-                        <a href="#about">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-        </ul>
+
+<!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header" >
+        <a class="navbar-brand topnav" href="#myNavbar">Book Eater Club</a>
+      </div>
+      <div>
+        <div class="collapse navbar-collapse" >
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#books">Books</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
+  </nav>    
 
+  <div class="form-group">
+      &nbsp;
   </div>
-</nav>    
+  <div class="form-group">
+      &nbsp;
+  </div>
+<!-- Navigation END -->
 
-<div class="form-group">
-    &nbsp;
-</div>
-<div class="form-group">
-    &nbsp;
-</div>
+<!-- Header -->
+  <header >
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 text-center">
+                      <img class="img-responsive center-block" src="../media/logo.png" alt="">
+                      <div class="intro-text">
+                          <span class="skills"><h3>Meet - Discuss - Drink</h3></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  </header>
+<!-- Header END -->
 
-
-<header >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive center-block" src="../media/logo.png" alt="">
-                    <div class="intro-text">
-                        <span class="skills"><h3>Meet - Discuss - Drink</h3></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-</header>
-
+<!-- Books -->
 <div id="books" class="container-fluid">
-<br>
-  <h1 class="page-header">Books </h1>
-  <div class="row">
+  <br>
+    <h1 class="page-header">Books</h1>
+    <div class="row" ng-controller="NowRead">
+      <div class="col-lg-12">
+        <h2 class="page-header">Currently reading</h2>
+      </div>
+    <div class="form-group">
+      &nbsp;
+    </div>
+    <div class="col-md-5"  >
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="media-object" src="../media/drood.jpg" alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{book.title}}</h4>
+          <h5>{{book.author}}</h5>
+          <br>
+          <br>
+          <p><em>{{book.genre}}</em></p>
+          <p><em>picked up by: {{book.picked_by}}</em></p>
+          <p><em>Started: {{book.started}}</em></p>
+        </div>
+      </div>
+    </div>
+      <div class="col-md-7">
+      <h5><em>To be discussed: {{book.end}} at {{book.pub}}</em></h5>
+      <br>
+        <p>{{book.desc}}</p>
+      </div>
+  </div>
+  <div class="form-group">
+      &nbsp;
+  </div>
     <div class="col-lg-12">
-                <h2 class="page-header">Currently reading</h2>
+      <h2 class="page-header">Past books</h2>
+      <div class="form-group">
+      &nbsp;
+    </div>
+    </div>
+   <div class="row" ng-controller="PastBooks" >
+      <div  ng-repeat="book in books">
+      <div class="row">
+      <div class="form-group">
+          &nbsp;
+      </div>
+        <div class="col-md-5">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src={{book.media}} alt="...">
+              </a>
             </div>
-  
-  <div> 
-  <div class="form-group">
-    &nbsp;
-  </div>
-  <div class="col-md-5">
-  <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="../media/drood.jpg" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Drood</h4>
-    <h5>by Dan Simmons</h5>
-    <br>
-    <br>
-    <p><em>historical, fiction, fantasy</em></p>
-    <p><em>picked up by: Marcin</em></p>
-    <p><em>Started: 24.10.2015</em></p>
-  </div>
-  </div>
-  </div>
-
-<div class="col-md-7">
-<h5><em>To be discussed: XX.XX.2016 at XXX</em></h5>
-<br>
-  <p>Drood… is the name and nightmare that obsesses Charles Dickens for the last five years of his life.
-
-On June 9, 1865, Dickens and his mistress are secretly returning to London, when their express train hurtles over a gap in a trestle. All of the first-class carriages except the one carrying Dickens are smashed to bits in the valley below. When Dickens descends into that valley to confront the dead and dying, his life will be changed forever. And at the core of that ensuing five-year nightmare is…</p>
-
-<p>Drood… the name that Dickens whispers to his friend Wilkie Collins. A laudanum addict and lesser novelist, Collins flouts Victorian sensibilities by living with one mistress while having a child with another, but he may be the only man on Earth with whom Dickens can share the secret of…</p>
-
-<p>Drood. Increasingly obsessed with crypts, cemeteries, and the precise length of time it would take for a corpse to dissolve in a lime pit, Dickens ceases writing for four years and wanders the worst slums and catacombs of London at night while staging public readings during the day, gruesome readings that leave his audiences horrified. Finally he begins writing what would have been the world’s first great mystery masterpiece, The Mystery of Edwin Drood, only to be interrupted forever by…</p>
-<p>Drood.</p>
-
-</div>
-</div>
-</div>
-<div class="form-group">
-    &nbsp;
-  </div>
-<div class="row">
-<div class="col-lg-12">
-                <h2 class="page-header">Past books</h2>
+            <div class="media-body">
+              <h4 class="media-heading">{{book.title}}</h4>
+              <h5>{{book.author}}</h5>
+              <br>
+              <br>
+              <p><em>{{book.genre}}</em></p>
+              <p><em>picked up by: {{book.picked_by}}</em></p>
             </div>
-<div>
-  <div class="form-group">
-    &nbsp;
-  </div>
-  <div class="col-md-5">
-  <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="../media/goods_themselves.jpg" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">The Gods Themselves</h4>
-    <h5>by Isaac Asimov</h5>
-    <br>
-    <br>
-    <p><em>science fiction</em></p>
-    <p><em>picked up by: Marcin</em></p>
-  </div>
-  </div>
-  </div>
-
-<div class="col-md-7">
-  <p>In the twenty-second century Earth obtains limitless, free energy from a source science little understands: an exchange between Earth and a parallel universe, using a process devised by the aliens. But even free energy has a price. The transference process itself will eventually lead to the destruction of Earth's Sun—and of Earth itself. </p>
-
-<p>Only a few know the terrifying truth—an outcast Earth scientist, a rebellious alien inhabitant who senses the imminent annihilation of the Sun. They know the truth—but who will listen? They have foreseen the cost of abundant energy—but who will believe? These few beings, human and alien, hold the key to Earth's survival.</p>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-lg-12">
-                <h2 class="page-header"></h2>
-            </div>
-<div>
-  <div class="form-group">
-    &nbsp;
-  </div>
-  <div class="col-md-5">
-  <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="../media/the-magic-mountain.jpg" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">The Magic Mountain</h4>
-    <h5>by Thomas Mann</h5>
-    <br>
-    <br>
-    <p><em>fiction, classic</em></p>
-    <p><em>picked up by: Mandy</em></p>
-  </div>
-  </div>
-  </div>
-
-<div class="col-md-7">
-  <p>In this dizzyingly rich novel of ideas, Mann uses a sanatorium in the Swiss Alps, a community devoted exclusively to sickness, as a microcosm for Europe, which in the years before 1914 was already exhibiting the first symptoms of its own terminal irrationality. The Magic Mountain is a monumental work of erudition and irony, sexual tension and intellectual ferment, a book that pulses with life in the midst of death.</p>
-</div>
-</div>
-</div>
-
-</div>
-<div id="about" class="container-fluid">
-<div class="row">
-<br>
-            <div class="col-lg-12">
-                <h1 class="page-header">About Us
-                </h1>
-                <p>We are a book club in Wroclaw, Poland.</p>
-            </div>
+          </div>
         </div>
+      <div class="col-md-7">
+        <p>{{book.desc}}</p>
+      </div>
+      </div>
+       <h2 class="page-header"></h2>
+      </div>
+   </div>
+  </div>
+<!-- Books END -->
+
+<!-- About -->
+  <div id="about" class="container-fluid" ng-controller = "About">
+  <div class="row">
+  <br>
+              <div class="col-lg-12">
+                  <h1 class="page-header">About Us</h1>
+                  <p>We are a book club in Wroclaw, Poland.</p>
+              </div>
+  </div>
    <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">We</h2>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Joe
-                   
-                </h3>
-               
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Maureen
-                   
-                </h3>
-                
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Marcin
-                    
-                </h3>
-               
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Mandy
-                </h3>
-                
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Sean
-                  
-                </h3>
-                
-            </div>
-        </div>
-
-
-</div>
-<br>
-<div id="contact" class="container-fluid">
-  <h1 class="page-header">Contact</h1>
-  <br>
-  <p>Want to join? Have a reccomendation? Get in touch!</p>
-  <br>
-  <form class="form-horizontal" role="form" method="post" action="index.php">
-
-  <div class="col-sm-4">
-     <div class="form-group">
-     <div class="row">
-       <label for="name" class="col-sm-2 control-label">Name</label>
-     </div>
-        <div class="row">
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
-        </div>
-        </div>
-        
-    </div>
-    <div class="form-group">
-        <div class="row">
-          <label for="email" class="col-sm-2 control-label">Email</label>
-        </div>
-        <div class="row">
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
-        </div>
-        </div>
-    </div>
+              <div class="col-lg-12">
+                  <h2 class="page-header">We</h2>
+              </div>
+              <div class="col-lg-4 col-sm-6 text-center" ng-repeat="person in about">
+                  <img class="img-circle img-responsive img-center" src={{person.picture}} alt="">
+                  <h3>{{person.name}}</h3>
+              </div>
+   </div>
+          <br>
   </div>
+<!-- About END -->  
 
-   <div class="col-sm-8">
-    <div class="form-group">
-    <div class="row">
-      <label style="text-align:left" for="message" class="col-sm-12 control-label ">What's up?</label>
+<!-- Contact -->
+  <div id="contact" class="container-fluid">
+    <h1 class="page-header">Contact</h1>
+    <br>
+    <p>Want to join? Have a reccomendation? Get in touch!</p>
+    <br>
+    <form class="form-horizontal" role="form" method="post" action="index.php">
+    <div class="col-sm-4">
+       <div class="form-group">
+       <div class="row">
+         <label for="name" class="col-sm-2 control-label">Name</label>
+       </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+          </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="row">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+          </div>
+          <div class="row">
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+          </div>
+          </div>
+      </div>
     </div>
-        <div class="row">
-           <div class="col-sm-12">
-            <textarea class="form-control pull-right" rows="4" name="message"></textarea>
-        </div>
-        </div>
-       
-    </div>
-    <div class="form-group">
-        <div class="pull-right">
-            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
-        </div>
-    </div>
-    </div>
-    
-   
-</form>
-
+     <div class="col-sm-8">
+      <div class="form-group">
+      <div class="row">
+        <label style="text-align:left" for="message" class="col-sm-12 control-label ">What's up?</label>
+      </div>
+          <div class="row">
+             <div class="col-sm-12">
+              <textarea class="form-control pull-right" rows="4" name="message"></textarea>
+          </div>
+          </div> 
+      </div>
+      <div class="form-group">
+          <div class="pull-right">
+              <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+          </div>
+      </div>
+      </div>   
+  </form>
+  </div>
+<!-- Contact END -->
 
 </div>
-</div>
-<script>
-$(document).ready(function(){
-  // Add scrollspy to <body>
-  $('body').scrollspy({target: ".navbar", offset: 50});   
-
-  // Add smooth scrolling on all links inside the navbar
-  $("#myNavbar a").on('click', function(event) {
-
-    // Prevent default anchor click behavior
-    event.preventDefault();
-
-    // Store hash
-    var hash = this.hash;
-
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 800, function(){
-   
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-    });
-  });
-});
-</script>
-
+<script src="slider.js"></script>
 </body>
 </html>
