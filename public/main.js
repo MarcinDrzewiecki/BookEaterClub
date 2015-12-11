@@ -75,7 +75,7 @@ app.controller('About', function($scope) {
         },
         {
           name: 'Marcin',
-          picture: 'http://placehold.it/200x200',
+          picture: '../media/marcin.JPG',
           desc: 'science fiction'
         },
         {
