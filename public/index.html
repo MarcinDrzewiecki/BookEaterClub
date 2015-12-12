@@ -20,7 +20,52 @@
   </style>
 </head>
 <body style="background:#f5f4f0;">
+
 <div class="container" id="myNavbar" >
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registration Form</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="registration" method='post' action='register.php'>
+    <fieldset>
+       <div class="control-group">
+        <label class="control-label">Email</label>
+        <div class="controls">
+          <input type="text" id="email" name="email">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Password:</label>
+        <div class="controls">
+          <input type="text" id="password" name="password1">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Password:</label>
+        <div class="controls">
+          <input type="text" id="password" name="password2">
+        </div>
+      </div>
+    </fieldset>
+  </form>
+      </div>
+      <div class="modal-footer">
+        <div class="control-group">
+        <label class="control-label"></label>
+        <div class="controls">
+          <button type="submit" class="btn btn-success" >Submit</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,6 +80,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
 
+            <!-- Login -->
             <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
       <ul id="login-dp" class="dropdown-menu">
@@ -55,17 +101,17 @@
                     </div>
                  </form>
               </div>
-              <div class="bottom text-center">
-                New here ? <a href="#"><b>Join Us</b></a>
+              <div class="bottom text-center" >
+                New here ? <a href="#"><b data-toggle="modal" data-target="#myModal">Join Us</b></a>
+
               </div>
            </div>
         </li>
-
-
           </ul>
         </div>
       </div>
     </div>
+
   </nav>    
 
   <div class="form-group">
@@ -187,7 +233,7 @@
               <div class="col-lg-4 col-sm-6 " ng-repeat="person in about">
                   <img class="img-circle img-responsive img-center" src={{person.picture}} alt="">
                   <h3>{{person.name}}</h3>
-                  <p><em>Lorem ipsum dolor sit amet, quem referrentur sea ad, saepe pertinax eloquentiam mei te, pri sonet eirmod eripuit ex. Duo eu sumo mentitum, vim an ridens perfecto euripidis. Facilisis vituperata eu duo. Ei vivendum gubergren gloriatur vis, sea possim accusata dignissim ex. Amet labitur ut vim, vix aliquam perfecto recusabo ea. Id omnis iisque volumus eam, his eu dissentiunt contentiones mediocritatem.</em></p>
+                  <p><em>{{person.desc}}</em></p>
               </div>
    </div>
           <br>
@@ -246,5 +292,8 @@
 
 </div>
 <script src="slider.js"></script>
+<script>$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})</script>
 </body>
 </html>
