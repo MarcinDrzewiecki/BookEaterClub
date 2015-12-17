@@ -82,7 +82,7 @@ app.controller('About', function($scope) {
         {
           name: 'Marcin',
           picture: '../media/marcin.JPG',
-          desc: 'Lorem ipsum dolor sit amet, quem referrentur sea ad, saepe pertinax eloquentiam mei te, pri sonet eirmod eripuit ex. Duo eu sumo mentitum, vim an ridens perfecto euripidis. Facilisis vituperata eu duo. Ei vivendum gubergren gloriatur vis, sea possim accusata dignissim ex. Amet labitur ut vim, vix aliquam perfecto recusabo ea. Id omnis iisque volumus eam, his eu dissentiunt contentiones mediocritatem.'
+          desc: 'Big Star Wars and science fiction fan. Also books and boardgames collector, as well as active bridge and chess player. Loves hicking and traveling.'
         },
         {
           name: 'Mandy',
@@ -96,8 +96,8 @@ app.controller('About', function($scope) {
         },
         {
           name: 'Maureen',
-          picture: 'http://placehold.it/200x200',
-          desc: 'Lorem ipsum dolor sit amet, quem referrentur sea ad, saepe pertinax eloquentiam mei te, pri sonet eirmod eripuit ex. Duo eu sumo mentitum, vim an ridens perfecto euripidis. Facilisis vituperata eu duo. Ei vivendum gubergren gloriatur vis, sea possim accusata dignissim ex. Amet labitur ut vim, vix aliquam perfecto recusabo ea. Id omnis iisque volumus eam, his eu dissentiunt contentiones mediocritatem.'
+          picture: '../media/maureen.jpg',
+          desc: 'Mo is a UX person. She likes Patricia Highsmith, audiobooks, and almost any detective novel.'
         }
         
     ];
