@@ -82,8 +82,7 @@ app.controller('About', function($scope) {
         {
           name: 'Marcin',
           picture: '../media/marcin.JPG',
-          desc: 'Big Star Wars and science fiction fan. Also books and boardgames collector, as well as active bridge and chess player. Loves hicking and traveling.'
-        },
+          desc: "Big Star Wars and science fiction fan, books and boardgames collector, and active bridge and chess player. Loves hiking and traveling." },
         {
           name: 'Mandy',
           picture: 'http://placehold.it/200x200',
