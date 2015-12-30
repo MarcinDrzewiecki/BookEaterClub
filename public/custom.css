@@ -10,6 +10,9 @@ p, div {
 body {
 	background:#f5f4f0;
   overflow-x:hidden;
+
+  padding-top: 50px;
+  height: 100%;
 }
 
 /*ranking css*/
@@ -98,4 +101,40 @@ ul.rating {
 }
 
 
+.wide {
+  width:100%;
+  height:100%;
+  height:calc(100% - 1px);
+  background-image:url('https://c.stocksy.com/a/RcN300/z0/805779.jpg');
+  background-size:cover;
+}
 
+.wide img {
+  width:100%;
+}
+
+.logo {
+  color:#fff;
+  font-weight:800;
+  font-size:14pt;
+  padding:25px;
+  text-align:center;
+}
+
+.line {
+  padding-top:20px;
+  white-space:no-wrap;
+  overflow:hidden;
+  text-align:center;
+}
+.custom-logo{
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.logo2-custom{
+      max-width: 500px;
+    position: relative;
+    top: -52px;
+    left: -103px;
+}
