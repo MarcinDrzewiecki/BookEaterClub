@@ -79,12 +79,13 @@
       <div>
         <div class="collapse navbar-collapse" >
           <ul class="nav navbar-nav navbar-right">
-            <li class="box"><a href="#books">Books</a></li>
+            <li class="box"><a href="#currentlyReading">Currently Reading</a></li>
+            <li class="box"><a href="#pastBooks">Past Books</a></li>
             <li class="box"><a href="#about">About Us</a></li>
             <li class="box"><a href="#contact">Contact</a></li>
 
             <!-- Login -->
-            <li class="dropdown">
+          <!--   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
       <ul id="login-dp" class="dropdown-menu">
         <li>
@@ -106,11 +107,10 @@
               </div>
               <div class="bottom text-center" >
                 New here ? <a href="#"><b data-toggle="modal" data-target="#myModal">Join Us</b></a>
-
               </div>
            </div>
         </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
@@ -136,15 +136,11 @@
 
 <div class="container">
   
-
 <!-- Books -->
-<div id="books" class="container-fluid">
+<div id="currentlyReading" class="container-fluid">
   <br>
-    <h1 class="page-header">Books</h1>
+    <h1 class="page-header">Currently Reading</h1>
     <div class="row" ng-controller="NowRead">
-      <div class="col-lg-12">
-        <h2 class="page-header">Currently reading</h2>
-      </div>
     <div class="form-group">
       &nbsp;
     </div>
@@ -152,7 +148,7 @@
       <div class="media">
         <div class="media-left">
           <a href="#">
-            <img class="media-object" src="../media/drood.jpg" alt="...">
+            <img class="media-object" src="../media/spy.jpg" alt="...">
           </a>
         </div>
         <div class="media-body">
@@ -161,61 +157,208 @@
           <br>
           <br>
           <p><em>{{book.genre}}</em></p>
-          <p><em>Picked by: {{book.picked_by}}</em></p>
+          <p><em>Picked up by: {{book.picked_by}}</em></p>
           <p><em>Started: {{book.started}}</em></p>
         </div>
       </div>
     </div>
-      <div class="col-md-7">
-      <h5><em>To be discussed: {{book.end}} at {{book.pub}}</em></h5>
+    <div class="col-md-7">
+      <h5><em>To be discussed: Around 15th of March</em></h5>
       <br>
         <p>{{book.desc}}</p>
       </div>
   </div>
+</div>
+
+
+
+  <div id="pastBooks" class="container-fluid">
   <div class="form-group">
       &nbsp;
   </div>
     <div class="col-lg-12">
-      <h2 class="page-header">Past books</h2>
+      <h1 class="page-header">Past books</h1>
       <div class="form-group">
       &nbsp;
     </div>
     </div>
    <div class="row" ng-controller="PastBooks" >
-      <div  ng-repeat="book in books">
       <div class="row">
-      <div class="form-group">
-          &nbsp;
-      </div>
-        <div class="col-md-5">
-          <div class="media">
-            <div class="media-left">
-              <a href="#">
+        <div ng-repeat="book in books">
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail" data-toggle="modal" data-target={{book.data_target}}>
                 <img class="media-object" src={{book.media}} alt="...">
               </a>
             </div>
-            <div class="media-body">
-              <h4 class="media-heading">{{book.title}}</h4>
-              <h5>{{book.author}}</h5>
-              <br>
-              <br>
-              <p><em>{{book.genre}}</em></p>
-              <p><em>picked up by: {{book.picked_by}}</em></p>
-              <div  ng-app="FundooDirectiveTutorial" ng-controller="FundooCtrl">
-              <div><em>Rating:</em><div fundoo-rating rating-value="rating" max="5" readonly="true"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <div class="col-md-7">
-        <p>{{book.desc}}</p>
-      </div>
-      </div>
-       <h2 class="page-header"></h2>
+         </div>
       </div>
    </div>
   </div>
 <!-- Books END -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Heart of the Dog - Mikhail Bulgakov</h4>
+      </div>
+      <div class="modal-body">
+        <p>Marcin: <i>"Funny, and provocative, but it ends to quick. I really enjoyed reading this one."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Mandy</div>
+        <div>Genre: fiction, classic</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Drood - Dan Simmons</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"Cool setting and idea but missed the mark."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Marcin</div>
+        <div>Genre: historical, fiction, fantasy</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">The Diamond Age - Neal Stephenson</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"I liked the cultural and economic themes. It was OK."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+        <p>Marcin: <i>"A waste of potential. So many unfinished plots. Worst Stephenson book I've read so far."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Joe</div>
+        <div>Genre: science fiction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Success - Martin Amis</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"This is like a first iteration of later Martin Amis books that are better. It was really funny at times, though."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+        <p>Marcin: <i>"Strange one. None of the characters I was able to identify with, which was awkward to read."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Maureen</div>
+        <div>Genre: fiction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Homicide - David Simon</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"I like detectives. This was good."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+        <p>Marcin: <i>"Brilliant! You feel like a real detective."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i></p>
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Sean</div>
+        <div>Genre: crime</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">The Magic Mountain - Thomas Mann</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"It was a big effort, but totally worth it. I'd like to read it again some day."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+        <p>Marcin: <i>"Very challenging, but really satisfying read. One of the MUST READ books"</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Mandy</div>
+        <div>Genre: classic, fiction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">The Gods Themselves - Isaac Asimov</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"I liked the first book, but the other two were dumb."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+      
+        <p>Marcin: <i>"Huge disappointment. Stupid and naive!"</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Marcin</div>
+        <div>Genre: science fiction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">The Double - Fyodor Dostoyevsky</h4>
+      </div>
+      <div class="modal-body">
+        <p>Maureen: <i>"This is before Dostoevsky knew what he was doing."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+        <p>Marcin: <i>"Nothing is obvious in this book. I was feeling like watching Christpher Nolan's movie."</i> &nbsp;&nbsp;&nbsp;<i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star'></i><i class='glyphicon glyphicon-star-empty'></i><i class='glyphicon glyphicon-star-empty'></i></p>
+
+
+      </div>
+      <div class="modal-footer">
+        <div>Picked up by: Joe</div>
+        <div>Genre: classic, fiction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- About -->
   <div id="about" class="container-fluid" ng-controller = "About">
@@ -228,7 +371,7 @@
   </div>
    <div class="row">
               <div class="col-lg-12">
-                  <h2 class="page-header">Us</h2>
+                  <h2 class="page-header">Members</h2>
               </div>
               <div class="col-lg-4 col-sm-6 " ng-repeat="person in about">
                   <img class="img-circle img-responsive img-center" src={{person.picture}} alt="">

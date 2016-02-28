@@ -3,13 +3,32 @@ var app = angular.module('BookEaterClub', []);
 
 app.controller('PastBooks', function($scope) {
          $scope.books = [
+         {
+          title: 'Heart of the Dog',
+          author: 'by Mikhail Bulgakov',
+          genre: "classic, fiction",
+          desc: 'Later',
+          media: '../media/heart-of-the-dog.jpg', 
+          picked_by: 'Mandy',
+          data_target: '#modal1'
+        },
+          {
+          title: 'Drood',
+          author: 'by Dan Simmons',
+          genre: "historical, fiction, fantasy",
+          desc: 'Later',
+          media: '../media/drood.jpg', 
+          picked_by: 'Marcin',
+          data_target: '#modal2'
+        },
         {
           title: 'The Diamond Age',
           author: 'by Neal Stephenson',
           genre: "science fiction",
           desc: 'Later',
           media: '../media/diamond_age.jpg', 
-          picked_by: 'Joe'
+          picked_by: 'Joe',
+          data_target: '#modal3'
         },
         {
           title: 'Success',
@@ -17,15 +36,17 @@ app.controller('PastBooks', function($scope) {
           genre: "fiction",
           desc: 'Later',
           media: '../media/success.jpg',
-          picked_by: 'Maureen'
+          picked_by: 'Maureen',
+          data_target: '#modal4'
         },
         {
-          title: 'Homicide - A Year on the Killing Streets',
+          title: 'Homicide',
           author: 'by David Simon',
           genre: "crime",
           desc: 'Later',
           media: '../media/homicide.jpg',
-          picked_by: 'Sean'
+          picked_by: 'Sean',
+          data_target: '#modal5'
         },
         {
           title: 'The Magic Mountain',
@@ -33,7 +54,8 @@ app.controller('PastBooks', function($scope) {
           genre: "classic, fiction",
           desc: 'Later',
           media: '../media/the-magic-mountain.jpg',
-          picked_by: 'Mandy'
+          picked_by: 'Mandy',
+          data_target: '#modal6'
         },
         {
           title: 'The Gods Themselves',
@@ -41,7 +63,8 @@ app.controller('PastBooks', function($scope) {
           genre: "science fiction",
           desc: 'Later',
           media: '../media/goods_themselves.jpg',
-          picked_by: 'Marcin'
+          picked_by: 'Marcin',
+          data_target: '#modal7'
         },
         {
           title: 'The Double',
@@ -49,7 +72,8 @@ app.controller('PastBooks', function($scope) {
           genre: "classic, fiction",
           desc: 'Later',
           media: '../media/double.jpg',
-          picked_by: 'Joe'
+          picked_by: 'Joe',
+          data_target: '#modal8'
         }
     ];
     });
@@ -58,13 +82,13 @@ app.controller('PastBooks', function($scope) {
 app.controller('NowRead', function($scope) {
     $scope.book = 
         {
-          title: 'Drood',
-          author: 'by Dan Simmons',
+          title: 'Tinker, Tailor, Soldier, Spy',
+          author: 'by John Le Carre',
           genre: 'historical, fiction, fantasy',
-          desc: 'Later',
+          desc: "A modern classic in which John le Carré expertly creates a total vision of a secret world, Tinker, Tailor, Soldier, Spy begins George Smiley's chess match of wills and wits with Karla, his Soviet counterpart.",
           media: '../media/drood.jpg', 
-          picked_by: 'Marcin',
-          started: '24.10.2015',
+          picked_by: 'Sean',
+          started: '06.02.2016',
           end: 'XX.XX.XXXX',
           pub: 'XXX'
         };
@@ -77,7 +101,7 @@ app.controller('About', function($scope) {
         {
           name: 'Joe',
           picture: "http://placehold.it/200x200",
-          desc: "Lorem ipsum dolor sit amet, quem referrentur sea ad, saepe pertinax eloquentiam mei te, pri sonet eirmod eripuit ex. Duo eu sumo mentitum, vim an ridens perfecto euripidis. Facilisis vituperata eu duo. Ei vivendum gubergren gloriatur vis, sea possim accusata dignissim ex. Amet labitur ut vim, vix aliquam perfecto recusabo ea. Id omnis iisque volumus eam, his eu dissentiunt contentiones mediocritatem."
+          desc: "Lorem ipsum dolor sit amet, quem referrentur sea ads."
         },
         {
           name: 'Marcin',
@@ -86,7 +110,7 @@ app.controller('About', function($scope) {
         {
           name: 'Mandy',
           picture: 'http://placehold.it/200x200',
-          desc: 'Lorem ipsum dolor sit amet, quem referrentur sea ad, saepe pertinax eloquentiam mei te, pri sonet eirmod eripuit ex. Duo eu sumo mentitum, vim an ridens perfecto euripidis. Facilisis vituperata eu duo. Ei vivendum gubergren gloriatur vis, sea possim accusata dignissim ex. Amet labitur ut vim, vix aliquam perfecto recusabo ea. Id omnis iisque volumus eam, his eu dissentiunt contentiones mediocritatem.'
+          desc: 'Lorem ipsum dolor sit amet, quem referrentur sea ads. Lorem ipsum dolor sit amet, quem referrentur sea ads.' 
         },
         {
           name: 'Sean',
@@ -101,52 +125,3 @@ app.controller('About', function($scope) {
         
     ];
     });
-
-
-app.controller('FundooCtrl', function($scope, $window) {
-    $scope.rating = 5;
-    $scope.saveRatingToServer = function(rating) {
-      /*$window.alert('Rating selected - ' + rating);<--- need to put some code here*/
-    };
-  })
-  .directive('fundooRating', function () {
-    return {
-      restrict: 'A',
-      template: '<ul class="rating">' +
-                  '<li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' +
-                    '\u2605' +
-                  '</li>' +
-                '</ul>',
-      scope: {
-        ratingValue: '=',
-        max: '=',
-        readonly: '@',
-        onRatingSelected: '&'
-      },
-      link: function (scope, elem, attrs) {
-
-        var updateStars = function() {
-          scope.stars = [];
-          for (var  i = 0; i < scope.max; i++) {
-            scope.stars.push({filled: i < scope.ratingValue});
-          }
-        };
-
-        scope.toggle = function(index) {
-          if (scope.readonly && scope.readonly === 'true') {
-            return;
-          }
-          scope.ratingValue = index + 1;
-          scope.onRatingSelected({rating: index + 1});
-        };
-
-        scope.$watch('ratingValue', function(oldVal, newVal) {
-          if (newVal) {
-            updateStars();
-          }
-        });
-      }
-    }
-  });
-    
-    
