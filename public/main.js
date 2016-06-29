@@ -4,6 +4,15 @@ var app = angular.module('BookEaterClub', []);
 app.controller('PastBooks', function($scope) {
          $scope.books = [
          {
+          title: 'Tinker, Tailor, Soldier, Spy',
+          author: 'by John Le Carre',
+          genre: 'fiction',
+          desc: "Later",
+          media: '../media/spy.jpg', 
+          picked_by: 'Sean',
+          data_target: '#modal9'
+        },
+         {
           title: 'Heart of the Dog',
           author: 'by Mikhail Bulgakov',
           genre: "classic, fiction",
@@ -82,13 +91,13 @@ app.controller('PastBooks', function($scope) {
 app.controller('NowRead', function($scope) {
     $scope.book = 
         {
-          title: 'Tinker, Tailor, Soldier, Spy',
-          author: 'by John Le Carre',
-          genre: 'historical, fiction, fantasy',
-          desc: "A modern classic in which John le Carré expertly creates a total vision of a secret world, Tinker, Tailor, Soldier, Spy begins George Smiley's chess match of wills and wits with Karla, his Soviet counterpart.",
-          media: '../media/drood.jpg', 
-          picked_by: 'Sean',
-          started: '06.02.2016',
+          title: 'Sweet sickness',
+          author: 'by Patricia Highsmith',
+          genre: 'mystery, crime, fiction',
+          desc: "David Kelsey, a young scientist, has an unyielding conviction that life will turn out all right for him; he just has to fix the Situation: he is in love with a married woman. Obsessed with Annabelle and the life he has imagined for them—including the fully furnished cabin he maintains for her—David prepares to win her over, whatever it takes.",
+          media: '../media/sweet-sickness.jpg', 
+          picked_by: 'Maureen',
+          started: '28.05.2016',
           end: 'XX.XX.XXXX',
           pub: 'XXX'
         };
