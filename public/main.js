@@ -6,7 +6,7 @@ app.controller('PastBooks', function($scope) {
          {
           title: 'Tinker, Tailor, Soldier, Spy',
           author: 'by John Le Carre',
-          genre: 'fiction',
+          genre: 'fiction, spy thriller',
           desc: "Later",
           media: '../media/spy.jpg', 
           picked_by: 'Sean',
